@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <p id="ventanita">
+        </p>
+
+    <script>
+
+        // Objeto JavaScript
+        let hospital = {
+            nombre:"La raza",
+            direccion:"Lazaro cardenas 22",
+            especialidades:["Orthopedia","Pediatria","Ginecologia"]
+        }
+        let hospital2 = {
+            nombre:"Siglo 21",
+            direccion:"Pino 21 ",
+            especialidades:["Pediatria","Cardiologia","Oncologia"]
+        }
+
+        // Manipular el DOM 
+        // Crear el nuevo elemento
+        let ul = document.createElement("ul");
+ 
+        let ol = document.createElement("ol");
+
+        // Asignarle el contenido al elemento
+        
+        let contenido = "<li>"+hospital.nombre+"</li>";
+        contenido+="<li>"+hospital2.nombre+"</li>";
+
+
+        let contenidoEspecialidades = "";
+
+
+        let arreglo = hospital.especialidades;
+
+        // Iterando la coleccion (Array)
+        for (let i=0;i<arreglo.length;i++){
+            contenidoEspecialidades+="<li>"+arreglo[i] +"</li>"
+        }
+
+        arreglo = hospital2.especialidades;
+        for (let i=0;i<arreglo.length;i++){
+            contenidoEspecialidades+="<li>"+arreglo[i] +"</li>"
+        }
+      
+
+        ol.innerHTML=contenidoEspecialidades;
+
+        ul.innerHTML=contenido;
+        
+        // Agregar un elemento al DOM
+        document.body.append(ul);
+        document.body.append(ol);
+
+
+        let arrayNombres = ["Ana","Rocio","Pedro"];
+        let segundoArrego = ["Carlos","Jorge","Ana","Rocio","Claudia"];
+
+        //let tercer;// Define un objeto
+        let tercer=[];// Define e inicializa
+
+
+        // El bloque try-catch, intenta ejecutar y atrapa el error (si existe)
+        try {
+
+            for (let i=0; i<segundoArrego.length;i++){
+                let resultadoBusqueda = arrayNombres.indexOf(segundoArrego[i]);
+                if (resultadoBusqueda  === -1){// Que no lo encuentre
+                    arrayNombres = [...arrayNombres, segundoArrego[i]];
+                }
+            }
+
+            document.getElementById("ventanita").innerText=arrayNombres.length;
+        } catch (error) {
+            document.getElementById("ventanita").innerText=error
+        }
+
+
+       
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
